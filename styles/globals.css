@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.neu-change {
+    border-radius: 50px;
+    background: linear-gradient(145deg, #252b3e, #2c334a);
+    box-shadow:  20px 20px 60px #23293b,
+                -20px -20px 60px #2f374f;
+}
