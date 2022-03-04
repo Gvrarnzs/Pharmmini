@@ -109,7 +109,7 @@ const MedoutAdd = ({open, handleModal}) => {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" sx={{mb:3, mt: 1, textAlign: 'center', fontSize: 25}} component="h2">
-                        Add Medicine In
+                        Add Medicine Out
                     </Typography>
                     <form onSubmit={formik.handleSubmit} id="add-form-next">
                         <TextfieldCustom 

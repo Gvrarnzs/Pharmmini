@@ -83,7 +83,7 @@ const MedicineEditout = ({openEdit, handleModalEdit, dataEditout }) => {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" sx={{mb:3, mt: 1, textAlign: 'center', fontSize: 25 }}>
-                        Edit Medicine In
+                        Edit Medicine Out
                     </Typography>
                     <TextfieldCustom 
                         name = "name"

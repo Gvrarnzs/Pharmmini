@@ -126,7 +126,8 @@ const ObatKeluar = () => {
                                     <TableCell align="center">{val.price}</TableCell>
                                     <TableCell align="center">{val.total}</TableCell>
                                     <TableCell align="center">{val.status}</TableCell>
-                                    <TableCell align="center">{JSON.stringify(val.createdAt.toDate().toLocaleString("id-ID"))}</TableCell>
+                                    <TableCell align="center">{JSON.stringify(val.createdAt?.toDate().toLocaleString("id-ID"))}</TableCell>
+                                    {/* <TableCell align="center">{new Date(val.createdAt)}</TableCell> */}
                                     <TableCell align="center">
                                         <ButtonGroup color='inherit' size="small" aria-label="small button group">
                                             <Button onClick={() => editDatain(index)}>Edit</Button>

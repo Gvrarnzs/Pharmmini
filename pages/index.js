@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Button } from '@mui/material'
 import { useRouter } from 'next/router'
 import TextField from '@mui/material/TextField';
@@ -6,8 +7,11 @@ import {useFormik} from 'formik'
 import { db } from '../connections/Connect';
 import { 
   collection, query, where, getDocs
- } from "firebase/firestore";
-
+} from "firebase/firestore";
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import IconButton from '@mui/material/IconButton';
 
 const TextfieldCustom = styled(TextField)({
   '& label.Mui-focused': {
@@ -33,6 +37,13 @@ const TextfieldCustom = styled(TextField)({
 });
 
 export default function Home() {
+  const [showPassword, setshowPassword] = useState(false);
+  const handleShowPassword = () => {
+    setshowPassword(!showPassword);
+  };
+
+
+
   const colRef = collection(db, 'apoteker')
   const router = useRouter()
   const formik = useFormik({
@@ -92,10 +103,19 @@ export default function Home() {
               onChange= {formik.handleChange}
               onBlur={formik.handleBlur}
               label = 'Password'
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               id='custom-css-outlined-input'
               sx={{ mt: 2, input : {color : '#E6AF2F'} }}
               fullWidth
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position='end'>
+                    <IconButton onClick={handleShowPassword}>
+                      {showPassword ? <VisibilityOff sx={{color: '#E6AF2F'}} /> : <Visibility sx={{color: '#E6AF2F'}} />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
             <Button sx={{mt:4, color: "#E6AF2F", borderColor: "#E6AF2F",":hover":{color: "#E6AF2F", borderColor: "#E6AF2F"}}} fullWidth variant='outlined' type="submit">Login</Button>
           </form>
